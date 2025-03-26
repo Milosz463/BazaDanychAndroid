@@ -7,6 +7,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 public interface DaoPracownicy {
@@ -19,7 +20,7 @@ public interface DaoPracownicy {
     @Update
     public void ZaktualizujDanePracownika(Pracownik pracownik);
     @Query("Select * from pracownicy where jezykOjczysty='polski'")
-    public ArrayList<Pracownik>wypiszPracownikowPolskoJezycznych();
+    public List<Pracownik>wypiszPracownikowPolskoJezycznych();
     @Query("Select*from pracownicy where jezykObcy=:jezyk")
-    public ArrayList<Pracownik>wypiszPracownikowMowiacychJezykiem(String jezyk);
+    public List<Pracownik> wypiszPracownikowMowiacychJezykiem(String jezyk);
 }
