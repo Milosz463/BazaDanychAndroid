@@ -1,5 +1,13 @@
-@Entity
-public class Pracownicy {
+package com.example.myapplication;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "pracownicy")
+public class Pracownicyy {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id_pracownika")
     int id;
     String imie;
     String nazwisko;
@@ -8,8 +16,8 @@ public class Pracownicy {
     Double wynagrodzenie;
     String stanowisko;
 
-    public Pracownicy(int id, String imie, String nazwisko, String jezykOjczysty, String jezykObcy, Double wynagrodzenie, String stanowisko) {
-        this.id = id;
+    public Pracownicyy(String imie, String nazwisko, String jezykOjczysty, String jezykObcy, Double wynagrodzenie, String stanowisko) {
+        this.id = 0;
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.jezykOjczysty = jezykOjczysty;
