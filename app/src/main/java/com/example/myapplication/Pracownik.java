@@ -2,10 +2,11 @@ package com.example.myapplication;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "pracownicy")
-public class Pracownicyy {
+public class Pracownik {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id_pracownika")
     int id;
@@ -16,7 +17,11 @@ public class Pracownicyy {
     Double wynagrodzenie;
     String stanowisko;
 
-    public Pracownicyy(String imie, String nazwisko, String jezykOjczysty, String jezykObcy, Double wynagrodzenie, String stanowisko) {
+    @Ignore
+    public Pracownik() {
+    }
+
+    public Pracownik(String imie, String nazwisko, String jezykOjczysty, String jezykObcy, Double wynagrodzenie, String stanowisko) {
         this.id = 0;
         this.imie = imie;
         this.nazwisko = nazwisko;
