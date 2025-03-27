@@ -7,6 +7,12 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
 private DataBaseFirmy dataBaseFirmy;
@@ -34,5 +40,23 @@ private DataBaseFirmy dataBaseFirmy;
         ).addCallback(mojCallback)
         .allowMainThreadQueries()
         .build();
+    }
+    private void DodajDaneDoBazy(){
+        ExecutorService executorService= Executors.newSingleThreadExecutor();
+        Handler handler=new Handler(Looper.getMainLooper());
+        executorService.execute(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        dataBaseFirmy.getDaoPracownicy().DodajPracownika(new Pracownik("Jaś", "Nowak", "Polski", "Angielski", 10000.0, "programista"));
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(MainActivity.this, "Dodano do bazy", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }
+        );
     }
 }

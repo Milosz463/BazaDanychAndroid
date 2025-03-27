@@ -11,16 +11,16 @@ import java.util.List;
 
 @Dao
 public interface DaoPracownicy {
-    @Insert
+     @Insert
     public void DodajPracownika(Pracownik pracownik);
     @Insert
     public void DodajWieluPracownikow(Pracownik ...pracownicy);
     @Delete
-    public void UusuPracownika(Pracownik pracownik);
+    public void UsunPracownika(Pracownik pracownik);
     @Update
     public void ZaktualizujDanePracownika(Pracownik pracownik);
     @Query("Select * from pracownicy where jezykOjczysty='polski'")
-    public List<Pracownik>wypiszPracownikowPolskoJezycznych();
-    @Query("Select*from pracownicy where jezykObcy=:jezyk")
-    public List<Pracownik> wypiszPracownikowMowiacychJezykiem(String jezyk);
+     public List<Pracownik>wypiszPracownikowPolskoJezycznych();
+     @Query("Select*from pracownicy where jezykObcy=:jezyk")
+     public List<Pracownik> wypiszPracownikowMowiacychJezykiem(String jezyk);
 }
