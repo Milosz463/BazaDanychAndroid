@@ -40,6 +40,8 @@ private DataBaseFirmy dataBaseFirmy;
         ).addCallback(mojCallback)
         .allowMainThreadQueries()
         .build();
+
+        DodajDaneDoBazy();
     }
     private void DodajDaneDoBazy(){
         ExecutorService executorService= Executors.newSingleThreadExecutor();
