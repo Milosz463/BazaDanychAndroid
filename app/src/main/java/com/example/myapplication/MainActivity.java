@@ -74,7 +74,7 @@ ArrayAdapter<Pracownik> arrayAdapter;
                         String jezykObcy=editTextJezyk.getText().toString();
                         String stanowisko=spinnerStanowisko.getSelectedItem().toString();
                         dataBaseFirmy.getDaoPracownicy().DodajPracownika(new Pracownik(imie, nazwisko, "Polski", jezykObcy, 10000.0, stanowisko));
-                        arrayAdapter.notifyDataSetChanged();
+                        wypiszPracownikow();
                     }
                 }
         );
