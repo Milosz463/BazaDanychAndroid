@@ -19,6 +19,8 @@ public interface DaoPracownicy {
     public void UsunPracownika(Pracownik pracownik);
     @Update
     public void ZaktualizujDanePracownika(Pracownik pracownik);
+    @Query("Select * from pracownicy")
+    public List<Pracownik>wypiszWszystkichPracownikow();
     @Query("Select * from pracownicy where jezykOjczysty='polski'")
      public List<Pracownik>wypiszPracownikowPolskoJezycznych();
      @Query("Select*from pracownicy where jezykObcy=:jezyk")
