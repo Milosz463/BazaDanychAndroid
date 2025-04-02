@@ -112,22 +112,4 @@ ArrayAdapter<Pracownik> arrayAdapter;
                 }
         );
     }
-    private void DodajDaneDoBazy(Pracownik pracownik){
-        ExecutorService executorService= Executors.newSingleThreadExecutor();
-        Handler handler=new Handler(Looper.getMainLooper());
-        executorService.execute(
-                new Runnable() {
-                    @Override
-                    public void run() {
-
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(MainActivity.this, "Dodano do bazy", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                }
-        );
-    }
 }
